@@ -1,3 +1,5 @@
+import math
+
 # Manual Implementations of Arithmetic Mean, Median, Mode, Variance, and Standard Deviation.
 
 def ar_mean(data):
@@ -116,6 +118,67 @@ def mode(data):
     # Return all the elements with the highest tally
     return [key for key, value in tally.items() if value == max_tally]
 
+def variance(data):
+    """
+    Compute the population variance of a numeric list.
+
+    Parameters
+    ----------
+    data : list of float or int
+        A list of numeric values. Must not be empty.
+
+    Returns
+    -------
+    float
+        The population variance of the dataset.
+
+    Raises
+    ------
+    ValueError
+        If the input list is empty.
+
+    Examples
+    --------
+    >>> variance([1, 2, 3])
+    0.6666666666666666
+    """
+
+    if not data:
+        raise ValueError("Input list cannot be empty.")
+
+    mean = ar_mean(data)
+    diff_data = [(e-mean)**2 for e in data]
+    return sum(diff_data)/len(data)
+
+def std_dev(data):
+    """
+    Compute the population standard deviation of a numeric list.
+
+    Parameters
+    ----------
+    data : list of float or int
+        A list of numeric values. Must not be empty.
+
+    Returns
+    -------
+    float
+        The population standard deviation of the dataset.
+
+    Raises
+    ------
+    ValueError
+        If the input list is empty.
+
+    Examples
+    --------
+    >>> std_dev([1, 2, 3])
+    0.816496580927726
+    >>> std_dev([5, 5, 5])
+    0.0
+    """
+
+    var = variance(data)
+    return math.sqrt(var)
 
 # data = [1.05, 2.3, 3.6, 4.8, 7.9, 10.6]
 # print(ar_mean(data))
@@ -124,7 +187,12 @@ def mode(data):
 # print(median([1, 2, 3, 4, 5]))
 
 # data = ["a", "b", "c", "a"]
-data = [1, 2, 3, 4, 5, 6, 6, 1, 3]
-print(mode(data))
-print(mode(["Apple", "Apple", "Orange", "Melon"]))
-print(mode([1, 2, 3, 4, 5, 1, 2]))
+# data = [1, 2, 3, 4, 5, 6, 6, 1, 3]
+# print(mode(data))
+# print(mode(["Apple", "Apple", "Orange", "Melon"]))
+# print(mode([1, 2, 3, 4, 5, 1, 2]))
+print(std_dev([1, 2, 3]))
+print(std_dev([5, 5, 5]))
+
+# - Variance, standard deviation
+# - Histograms, boxplots, correlation
