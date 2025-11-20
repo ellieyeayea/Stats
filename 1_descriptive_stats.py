@@ -179,20 +179,3 @@ def std_dev(data):
 
     var = variance(data)
     return math.sqrt(var)
-
-# data = [1.05, 2.3, 3.6, 4.8, 7.9, 10.6]
-# print(ar_mean(data))
-# print(median(data))
-# print(median([1, 2, 3, 4, 5, 6]))
-# print(median([1, 2, 3, 4, 5]))
-
-# data = ["a", "b", "c", "a"]
-# data = [1, 2, 3, 4, 5, 6, 6, 1, 3]
-# print(mode(data))
-# print(mode(["Apple", "Apple", "Orange", "Melon"]))
-# print(mode([1, 2, 3, 4, 5, 1, 2]))
-print(std_dev([1, 2, 3]))
-print(std_dev([5, 5, 5]))
-
-# - Variance, standard deviation
-# - Histograms, boxplots, correlation
